@@ -3,7 +3,6 @@
 
 use std::collections::HashMap;
 
-// Commented for historical purpose.
 // If you want to instantiate Greeting
 // let msg = Greeting{
 //     prefix: String::from("Hello"),
@@ -14,18 +13,17 @@ struct Greeting {
     name: String,
 }
 
+// Commented for historical purpose.
+// Constructor with &s only.
+// When constructing msg you cannot pass a string literal such as prefix: "S".
+// "S" is a ref-to-str and prefix expects a string.
+// fn new(prefix: &str, name: &str) -> Self {
+//    Greeting {
+//        prefix: prefix.to_string(),
+//        name: name.to_string(),
+//    }
+// }
 impl Greeting {
-    //  Commented for historical purpose.
-    // Constructor with &s only.
-    // When constructing msg you cannot pass a string literal such as prefix: "S".
-    // "S" is a ref-to-str and prefix expects a string.
-    // fn new(prefix: &str, name: &str) -> Self {
-    //    Greeting {
-    //        prefix: prefix.to_string(),
-    //        name: name.to_string(),
-    //    }
-    // }
-
     // Take any type T that can be represented as a ref to string
     fn new<T: AsRef<str>>(prefix: T, name: T) -> Self {
         Greeting {
@@ -46,9 +44,8 @@ impl std::fmt::Display for Greeting {
 }
 
 // This is roughly how std::convert::Into is implemented
-// Read as: for type T, we implement Into<U> if U implements From<T>, T will implement Into<U>
-// impl<T, U> Into<U> for T
-// where
+// Read as: for type T, we implement Into<U> if U implements From<T>, T will
+// implement Into<U> impl<T, U> Into<U> for T where
 //    U: From<T>,
 // {
 //    fn into(self) -> U {
@@ -63,27 +60,34 @@ impl std::fmt::Display for Greeting {
 fn main() {
     const ENGLISH_PREFIX: &str = "Hello";
     let name = "Sam";
-
     let msg = Greeting::new(ENGLISH_PREFIX, name);
     println!("{} {}!", msg.prefix, msg.name);
 
-    // println!("{}", <String as AsRef<str>>::as_ref(&msg.prefix));  // prints "Hello"
+    let value: i32 = 58310;
+    println!("Base 10: {}", value);
+    println!("Base 2: {:b}", value);
+    println!("Base 8: {:o}", value);
+    println!("Base 16: {:x}", value);
+    println!("Base 16: {:X}", value);
+
+    // println!("{}", <String as AsRef<str>>::as_ref(&msg.prefix));  // prints
     println!("{}", Greeting::new("Hallo", "Bob"));
+    // "Hello"
 
     // Rust ownership model
     //  (aside: T: Templated function that takes any type.)
     //  Norm: variables that start with _ are dropped.
-    //  Under the hood, when you pass x by value here, _T ownership will transfer to the function scope
-    //  Upon return, _T will get freed.
-    // Decl is approximately: pub fn drop<T>(_x: T) {}
+    //  Under the hood, when you pass x by value here, _T ownership will
+    //  transfer to the function scope Upon return, _T will get freed.
     let v = vec![1, 2, 3];
+    // Decl is approximately: pub fn drop<T>(_x: T) {}
     drop(v);
 
-    // Entry API
     let mut letters = HashMap::new();
     for ch in "some text".chars() {
         // entry is an entry in the HashMap.
         // More: doc.rust-lang.org/std/collections/hash_map/enum.Entry.html
+        // Entry API
         // counter is a mutable reference to value in HashMap
         let counter = letters.entry(ch).or_insert(0);
         *counter += 1;
