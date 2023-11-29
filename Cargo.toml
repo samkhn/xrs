@@ -1,7 +1,11 @@
 [workspace]
+resolver = '2'
 
 members = [
 	"rand",
 	"intro",
-	"guessing_game",
+	"guessing_game",  # uses rand
+	"rectangle_sort",  # demos closure
+	"server",
+	"csv",
 ]

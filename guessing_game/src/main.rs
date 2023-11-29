@@ -26,14 +26,14 @@ fn main() {
             .read_line(&mut input)
             .expect("able to read line from stdin");
         guess = input.trim().parse::<u32>().unwrap();
-	input.clear();
+        input.clear();
         if guess == target {
             println!("You won! It was {target}");
             println!("Took {guess_count} attempts");
             return;
         }
         guess_count += 1;
-	println!("Nope!. Try again. This was attempt {guess_count}");
+        println!("Nope!. Try again. This was attempt {guess_count}");
     }
     println!("Sorry, ran out of attempts ({guess_count_limit}). It was {target}");
 }

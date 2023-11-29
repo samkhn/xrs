@@ -55,10 +55,10 @@ impl MT19937 {
             self.data_[KN - 1] = self.data_[KM - 1];
             self.data_[i] ^= y >> 1;
             self.data_[i] ^= KMAG[(y & 1) as usize];
-	    self.current_index_ = 0;
+            self.current_index_ = 0;
         }
         y = self.data_[self.current_index_];
-	self.current_index_ += 1;
+        self.current_index_ += 1;
         y ^= y >> 11;
         y ^= (y << 7) & 0x9d2c5680;
         y ^= (y << 15) & 0xefc60000;
