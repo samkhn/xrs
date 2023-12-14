@@ -3,7 +3,3 @@ name = "intro"
 version = "0.1.0"
 edition = "2021"
 
-[[bin]]
-name = "intro"
-path = "src/bin/main.rs"
-

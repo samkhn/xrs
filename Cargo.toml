@@ -1,11 +1,10 @@
 [workspace]
-resolver = '2'
-
 members = [
-	"rand",
-	"intro",
-	"guessing_game",  # uses rand
-	"rectangle_sort",  # demos closure
-	"server",
-	"csv",
+	"intro",  			# main language features
+	"rectangle_sort",  	# demos closure
+	"csv",  			# demo of converting string to CSV
+	"rand",  			# MT19937
+	"guessing_game",  	# uses rand
 ]
+
+resolver = '2'
