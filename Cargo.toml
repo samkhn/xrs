@@ -1,10 +1,13 @@
 [workspace]
 members = [
-	"intro",  			# main language features
-	"rectangle_sort",  	# demos closure
-	"csv",  			# demo of converting string to CSV
-	"rand",  			# MT19937
-	"guessing_game",  	# uses rand
+	"intro",  # main language features
+	"rectangle_sort",  # demos closure
+	"csv",  # demo of converting string to CSV
+	"io",  # printing types
+	"primitives",  # such as arrays, tuples, bitsets
+	# example of a larger project
+	"rand",  # MT19937
+	"guessing_game",  # uses rand
 ]
 
 resolver = '2'
