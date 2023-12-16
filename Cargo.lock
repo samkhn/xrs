@@ -3,7 +3,7 @@
 version = 3
 
 [[package]]
-name = "csv"
+name = "examples"
 version = "0.1.0"
 
 [[package]]
@@ -14,21 +14,5 @@ dependencies = [
 ]
 
 [[package]]
-name = "intro"
-version = "0.1.0"
-
-[[package]]
-name = "io"
-version = "0.1.0"
-
-[[package]]
-name = "primitives"
-version = "0.1.0"
-
-[[package]]
 name = "rand"
-version = "0.1.0"
-
-[[package]]
-name = "rectangle_sort"
 version = "0.1.0"
