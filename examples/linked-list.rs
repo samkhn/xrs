@@ -10,17 +10,22 @@ impl List {
         Nil
     }
 
+    // not &self because we are consuming the passed in list
     fn prepend(self, elem: u32) -> List {
         Cons(elem, Box::new(self))
     }
 
     fn len(&self) -> u32 {
-        match *self {
-            Cons(_, ref tail) => 1 + tail.len(),
+        match self {
+	    // self is of type &List
+	    // tail here is a reference as well
+            Cons(_, tail) => 1 + tail.len(),
             Nil => 0,
         }
     }
 
+    // uses format() which is similar to print! but returns heap allocated string instead of
+    // printing to console
     fn to_string(&self) -> String {
         match *self {
             Cons(head, ref tail) => {

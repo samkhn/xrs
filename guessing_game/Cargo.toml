@@ -3,5 +3,10 @@ name = "guessing_game"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies]
-rand = { path = "../rand" }
+[[bin]]
+name = "guessing_game"
+path = "src/main.rs"
+
+[lib]
+name = "rand"
+path = "src/rand.rs"

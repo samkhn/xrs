@@ -1,7 +1,6 @@
 [workspace]
 members = [
 	"examples",  # main language features
-	"rand",  # MT19937
 	"guessing_game",  # uses rand
 ]
 
