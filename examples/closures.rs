@@ -16,7 +16,6 @@
 // println("After only borrow {:?}", list);  // will print [1, 2, 3]
 // mutably_borrows();
 // println("After mutable borrow {:?}", list);  // will print [1, 2, 3, 7]
-//
 
 #[derive(Debug)]
 struct Rectangle {

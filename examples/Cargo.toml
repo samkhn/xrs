@@ -8,6 +8,10 @@ name = "intro"
 path = "intro.rs"
 
 [[bin]]
+name = "errors"
+path = "errors.rs"
+
+[[bin]]
 name = "io"
 path = "io.rs"
 
@@ -20,13 +24,37 @@ name = "primitives"
 path = "primitives.rs"
 
 [[bin]]
-name = "rectangle-sort"
-path = "rectangle-sort.rs"
-
-[[bin]]
 name = "custom-types"
 path = "custom-types.rs"
 
 [[bin]]
 name = "linked-list"
 path = "linked-list.rs"
+
+[[bin]]
+name = "match-ref-binding"
+path = "match-ref-binding.rs"
+
+[[bin]]
+name = "control-flow"
+path = "control-flow.rs"
+
+[[bin]]
+name = "closures"
+path = "closures.rs"
+
+[[bin]]
+name = "high-order-func"
+path = "high-order-func.rs"
+
+[[bin]]
+name = "super-self"
+path = "super-self.rs"
+
+[[bin]]
+name = "generics"
+path = "generics.rs"
+
+[[bin]]
+name = "wheres"
+path = "wheres.rs"
