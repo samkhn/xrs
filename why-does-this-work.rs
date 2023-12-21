@@ -20,6 +20,7 @@ fn main() {
     let null = Null;
 
     // (Q) How did the Double Drop trait get implemented/declares for Empty Null???
+    // (Q) Does calling this generate the underlying implementation?
     empty.double_drop(null);
 
     //empty;

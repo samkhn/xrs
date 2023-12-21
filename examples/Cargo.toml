@@ -58,3 +58,19 @@ path = "generics.rs"
 [[bin]]
 name = "wheres"
 path = "wheres.rs"
+
+[[bin]]
+name = "newtype"
+path = "newtype.rs"
+
+[[bin]]
+name = "associated-items"
+path = "associated-items.rs"
+
+[[bin]]
+name = "fibonacci-iter"
+path = "fibonacci-iter.rs"
+
+[[bin]]
+name = "impl-trait"
+path = "impl-trait.rs"
