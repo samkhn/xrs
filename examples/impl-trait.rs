@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 // instead of this
 // fn parse_csv<R: std::io::BufRead>(contents: R> -> std::io::Result<Vec<Vec<String>>> {
 // }
