@@ -1,3 +1,5 @@
+use std::ops::{Add, Mul, Sub};
+
 macro_rules! say_hey {
     // macro takes no arguments
     () => {
@@ -46,12 +48,56 @@ macro_rules! test {
     };
 }
 
-// macros can repeat with +
 macro_rules! find_min {
     ($x:expr) => ($x);
+    // macros can repeat with +
     ($x:expr, $($y:expr),+) => (
         std::cmp::min($x, find_min!($($y), +))
     )
+}
+
+macro_rules! assert_equal_len {
+    // tt is for token tree designator
+    // used for operators and tokens
+    ($a:expr, $b:expr, $func:ident, $op:tt) => {
+        assert!(
+            $a.len() == $b.len(),
+            "{:?}: dimension mismatch {:?} {:?} {:?}",
+            stringify!($func),
+            ($a.len(),),
+            stringify!($op),
+            ($b.len(),)
+        );
+    };
+}
+
+macro_rules! op {
+    ($func:ident, $bound:ident, $op:tt, $method:ident) => {
+        fn $func<T: $bound<T, Output = T> + Copy>(xs: &mut Vec<T>, ys: &Vec<T>) {
+            assert_equal_len!(xs, ys, $func, $op);
+            for (x, y) in xs.iter_mut().zip(ys.iter()) {
+                *x = $bound::$method(*x, *y);
+            }
+        }
+    };
+}
+
+op!(add_assign, Add, +=, add);
+op!(mul_assign, Mul, *=, mul);
+op!(sub_assign, Sub, -=, sub);
+
+// DSL, how something like lazy_static gets implemented
+macro_rules! calculate {
+    (eval $e:expr) => {
+        {
+            let val: usize = $e;
+            println!("{} = {}", stringify!($e), val);
+        }
+    };
+    (eval $e:expr, $(eval $es:expr), +) => {{
+        calculate! { eval $e }
+        calculate! { $(eval $es),+ }
+    }};
 }
 
 fn main() {
@@ -67,5 +113,30 @@ fn main() {
 
     println!("min of 1 is {}", find_min!(1));
     println!("min of 5 and 2*3 is {}", find_min!(5, 2 * 3));
-    println!("min of 5 6 3 is {}", find_min!(5, 6, 3))
+    println!("min of 5 6 3 is {}", find_min!(5, 6, 3));
+
+    calculate! {
+        eval 1 + 2,
+        eval 3 + 4
+    }
+}
+
+mod test {
+    macro_rules! test {
+        ($func:ident, $x:expr, $y:expr, $z:expr) => {
+            #[test]
+            fn $func() {
+                for size in 0usize..10 {
+                    let mut x: Vec<_> = std::iter::repeat($x).take(size).collect();
+                    let y: Vec<_> = std::iter::repeat($y).take(size).collect();
+                    let z: Vec<_> = std::iter::repeat($z).take(size).collect();
+                    super::$func(&mut x, &y);
+                    assert_eq!(x, z);
+                }
+            }
+        };
+    }
+    test!(add_assign, 1u32, 2u32, 3u32);
+    test!(mul_assign, 2u32, 3u32, 6u32);
+    test!(sub_assign, 3u32, 2u32, 1u32);
 }
