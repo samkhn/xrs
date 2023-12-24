@@ -82,3 +82,15 @@ path = "macro.rs"
 [[bin]]
 name = "option"
 path = "option.rs"
+
+[[bin]]
+name = "question"
+path = "question.rs"
+
+[[bin]]
+name = "map-combinator"
+path = "map-combinator.rs"
+
+[[bin]]
+name = "and-then-combinator"
+path = "and-then-combinator.rs"

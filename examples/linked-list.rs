@@ -17,8 +17,8 @@ impl List {
 
     fn len(&self) -> u32 {
         match self {
-	    // self is of type &List
-	    // tail here is a reference as well
+            // self is of type &List
+            // tail here is a reference as well
             Cons(_, tail) => 1 + tail.len(),
             Nil => 0,
         }
