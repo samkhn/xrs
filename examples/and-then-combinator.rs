@@ -4,14 +4,14 @@
 enum Food {
     CordonBleu,
     Steak,
-    Sushi
+    Sushi,
 }
 
 #[derive(Debug)]
 enum Day {
     Monday,
     Tuesday,
-    Wednesday
+    Wednesday,
 }
 
 // we don't have the ingredients to make sushi

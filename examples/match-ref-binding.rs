@@ -37,5 +37,4 @@ fn main() {
         n @ 22..=100 => println!("I am an adult of age {:?}", n),
         n @ i32::MIN..=0 | n @ 101..=i32::MAX => println!("wow cool age lol: {:?}", n),
     }
-
 }
