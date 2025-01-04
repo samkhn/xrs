@@ -94,3 +94,20 @@ path = "map-combinator.rs"
 [[bin]]
 name = "and-then-combinator"
 path = "and-then-combinator.rs"
+
+[[bin]]
+name = "rng"
+path = "rng.rs"
+
+[[bin]]
+name = "sorting"
+path = "sorting.rs"
+
+[[bin]]
+name = "cli-demo"
+path = "cli-demo.rs"
+
+[dependencies]
+clap = "4.5.23"
+rand = "0.8.5"
+rand_distr = "0.4.3"

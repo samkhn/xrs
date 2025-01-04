@@ -71,8 +71,8 @@ fn main() {
     println!("Base 16: {:X}", value);
 
     // println!("{}", <String as AsRef<str>>::as_ref(&msg.prefix));  // prints
-    println!("{}", Greeting::new("Hallo", "Bob"));
     // "Hello"
+    println!("{}", Greeting::new("Hallo", "Bob"));
 
     // Rust ownership model
     //  (aside: T: Templated function that takes any type.)

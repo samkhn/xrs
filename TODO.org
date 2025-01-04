@@ -1,2 +1,3 @@
 * TODO how does the compiler derive implementations?
 * TODO overload the assignment operator in rust?
+* TODO custom sort functions in sorting.rs
