@@ -1,7 +1,8 @@
 [workspace]
 members = [
 	"examples",  # main language features
-	"guessing_game",  # uses rand
+	"guessing_game",  # example of a library and binary
+	"pastebin",
 ]
 
 resolver = '2'

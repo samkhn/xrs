@@ -1,0 +1,16 @@
+[package]
+name = "pastebin"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "pastebin"
+path = "src/main.rs"
+
+[lib]
+name = "paste_id"
+path = "src/paste_id.rs"
+
+[dependencies]
+rand = "0.8.5"
+rocket = "0.5.1"

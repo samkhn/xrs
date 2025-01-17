@@ -107,7 +107,14 @@ path = "sorting.rs"
 name = "cli-demo"
 path = "cli-demo.rs"
 
+[[bin]]
+name = "compression"
+path = "compression.rs"
+
 [dependencies]
 clap = "4.5.23"
+flate2 = "1.0.35"
 rand = "0.8.5"
 rand_distr = "0.4.3"
+tar = "0.4.43"
+
