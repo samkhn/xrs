@@ -3,10 +3,9 @@ name = "std"
 version = "0.1.0"
 edition = "2021"
 
-[[bin]]
-name = "vector_example"
-path = "vector_example.rs"
-
 [lib]
 name = "vector"
 path = "vector.rs"
+
+[dependencies]
+cargo-valgrind = "2.2.1"
