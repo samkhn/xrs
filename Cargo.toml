@@ -2,7 +2,8 @@
 members = [
 	"examples",  # main language features
 	"guessing_game",  # example of a library and binary
-	"pastebin",
+	"pastebin",   # example of a rocket web server
+	"std",   # implement my standard libraries
 ]
 
 resolver = '2'
